@@ -12,7 +12,8 @@ for line in lines:
     report_strings = line.split()
     report = list(map(int, report_strings))
     
-    # Iterate through each report, run through series of checks... break out of inner loop and set safe_report to false, so we count safe reports only
+    # Iterate through each report, run through series of checks
+    # Break out of inner loop and set safe_report to false, so we count safe reports only
     for i in range(len(report) - 1):
         if report[i] == report[i + 1]:
             safe_report = False
