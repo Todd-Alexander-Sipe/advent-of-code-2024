@@ -1,11 +1,13 @@
 # Read the file, get a list made of each line from the file
-with open("prob1\prob1.txt", "r") as file:
+with open("day1/day1.txt", "r") as file:
     lines = file.readlines()
 
-# Create a left list, a right list, and a diffs list
+
+# Create a left list, a right list
 left = []
 right = []
-diffs = []
+similarities = []
+
 
 # Split each line and append left entry to left[] and right entry to right[], eliminating white space and newlines
 for line in lines:
@@ -13,18 +15,23 @@ for line in lines:
     left.append(int(two_numbers[0]))
     right.append(int(two_numbers[1]))
 
+
 # Sort each list
 left.sort()
 right.sort()
 
-# Append the differences (absolute values) of each pair to diffs[]
-for i in range(len(left)):
-    diffs.append(abs(left[i] - right[i]))
+
+# Iterate through left list, get multiple number from right list, get similarity value and append it to similarities
+for value in left:
+    multiple = right.count(value)
+    similarity = value * multiple
+    similarities.append(similarity)
+
 
 solution = 0
 
-# Add up the diffs in diffs
-for diff in diffs:
-    solution += diff
 
+# Add up similaritiess
+for similarity in similarities:
+    solution += similarity
 print(solution)
