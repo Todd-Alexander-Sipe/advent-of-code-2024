@@ -31,7 +31,7 @@ real_count = 0
 
 
 # Ensure what we are checking is in bounds
-def check_in_bounds(lat, lon):
+def check_in_bounds(lat: int, lon: int) -> bool:
     if lat == 0 or lat == puzzle_height - 1 or lon == 0 or lon == puzzle_width - 1:
         return False
     else:
@@ -43,7 +43,7 @@ def check_in_bounds(lat, lon):
 # Left: M S  Top: M M  Right: S M  Bottom: S S
 #        A         A           A            A
 #       M S       S S         S M          M M
-def check_left(lat, lon):
+def check_left(lat: int, lon: int) -> bool:
     if puzzle[lat - 1][lon - 1] == "M":
         if puzzle[lat - 1][lon + 1] == "M":
             if puzzle[lat + 1][lon - 1] == "S":
@@ -52,7 +52,7 @@ def check_left(lat, lon):
     return False
 
 
-def check_top(lat, lon):
+def check_top(lat: int, lon: int) -> bool:
     if puzzle[lat - 1][lon - 1] == "M":
         if puzzle[lat - 1][lon + 1] == "S":
             if puzzle[lat + 1][lon - 1] == "M":
@@ -61,7 +61,7 @@ def check_top(lat, lon):
     return False
 
 
-def check_right(lat, lon):
+def check_right(lat: int, lon: int) -> bool:
     if puzzle[lat - 1][lon - 1] == "S":
         if puzzle[lat - 1][lon + 1] == "S":
             if puzzle[lat + 1][lon - 1] == "M":
@@ -70,7 +70,7 @@ def check_right(lat, lon):
     return False
 
 
-def check_bottom(lat, lon):
+def check_bottom(lat: int, lon: int) -> bool:
     if puzzle[lat - 1][lon - 1] == "S":
         if puzzle[lat - 1][lon + 1] == "M":
             if puzzle[lat + 1][lon - 1] == "S":
@@ -92,4 +92,6 @@ for i in range(len(puzzle)):
                     real_count += 1
                 if check_bottom(i, j):
                     real_count += 1
+
+
 print(real_count)

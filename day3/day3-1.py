@@ -14,7 +14,7 @@ pattern = r"mul\(\d{1,3},\d{1,3}\)"
 
 
 # Function to gather multiples, multiply them, and append the result to the list of legal products
-def mul_it(input):
+def mul_it(input: str) -> None:
     cleaned_input = input.replace("mul(", "").replace(")", "")
     pair = cleaned_input.split(",")
     first = int(pair[0])

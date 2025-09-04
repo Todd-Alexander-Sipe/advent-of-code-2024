@@ -6,7 +6,7 @@ with open("day2/day2.txt", "r") as file:
 safe = 0
 
 
-def check_report(report):
+def check_report(report: list[int]) -> bool:
     safely_increasing = False
     safely_decreasing = False
     safe_report = True

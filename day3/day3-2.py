@@ -20,7 +20,7 @@ pattern = r"mul\(\d{1,3},\d{1,3}\)|do\(\)|don't\(\)"
 
 
 # Function to return product of two numbers from a string that looks like "mul(###,###)"
-def mul_it(input):
+def mul_it(input: str) -> int:
     cleaned_input = input.replace("mul(", "").replace(")", "")
     pair = cleaned_input.split(",")
     first = int(pair[0])

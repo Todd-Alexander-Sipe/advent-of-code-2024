@@ -26,7 +26,7 @@ real_count = 0
 
 # 8 functions for checking each direction, first checking for in bounds
 # Then checking for M, A, and S in the direction chosen
-def check_east(lat, lon):
+def check_east(lat: int, lon: int) -> bool:
     if lat <= puzzle_width - 4:
         if puzzle[lat + 1][lon] == "M":
             if puzzle[lat + 2][lon] == "A":
@@ -35,7 +35,7 @@ def check_east(lat, lon):
     return False
 
 
-def check_west(lat, lon):
+def check_west(lat: int, lon: int) -> bool:
     if lat >= 3:
         if puzzle[lat - 1][lon] == "M":
             if puzzle[lat - 2][lon] == "A":
@@ -44,7 +44,7 @@ def check_west(lat, lon):
     return False
 
 
-def check_north(lat, lon):
+def check_north(lat: int, lon: int) -> bool:
     if lon >= 3:
         if puzzle[lat][lon - 1] == "M":
             if puzzle[lat][lon - 2] == "A":
@@ -53,7 +53,7 @@ def check_north(lat, lon):
     return False
 
 
-def check_south(lat, lon):
+def check_south(lat: int, lon: int) -> bool:
     if lon <= puzzle_height - 4:
         if puzzle[lat][lon + 1] == "M":
             if puzzle[lat][lon + 2] == "A":
@@ -62,7 +62,7 @@ def check_south(lat, lon):
     return False
 
 
-def check_northwest(lat, lon):
+def check_northwest(lat: int, lon: int) -> bool:
     if lon >= 3 and lat >= 3:
         if puzzle[lat - 1][lon - 1] == "M":
             if puzzle[lat - 2][lon - 2] == "A":
@@ -71,7 +71,7 @@ def check_northwest(lat, lon):
     return False
 
 
-def check_northeast(lat, lon):
+def check_northeast(lat: int, lon: int) -> bool:
     if lon >= 3 and lat <= puzzle_width - 4:
         if puzzle[lat + 1][lon - 1] == "M":
             if puzzle[lat + 2][lon - 2] == "A":
@@ -80,7 +80,7 @@ def check_northeast(lat, lon):
     return False
 
 
-def check_southwest(lat, lon):
+def check_southwest(lat: int, lon: int) -> bool:
     if lon <= puzzle_height - 4 and lat >= 3:
         if puzzle[lat - 1][lon + 1] == "M":
             if puzzle[lat - 2][lon + 2] == "A":
@@ -89,7 +89,7 @@ def check_southwest(lat, lon):
     return False
 
 
-def check_southeast(lat, lon):
+def check_southeast(lat: int, lon: int) -> bool:
     if lon <= puzzle_height - 4 and lat <= puzzle_width - 4:
         if puzzle[lat + 1][lon + 1] == "M":
             if puzzle[lat + 2][lon + 2] == "A":
